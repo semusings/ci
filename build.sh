@@ -1,7 +1,7 @@
 #!/bin/bash
 
 COMMON_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/common.sh"
-# shellcheck source=scripts/common.sh
+# shellcheck source=cicd/ci/common.sh
 source "${COMMON_SCRIPT}"
 
 compile() {

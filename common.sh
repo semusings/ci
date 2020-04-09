@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BEFORE_CI_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/before_ci.sh"
-# shellcheck source=scripts/before_ci.sh
+# shellcheck source=cicd/ci/before_ci.sh
 source "${BEFORE_CI_SCRIPT}"
 
 # run the ITs if we have an ENV_VARS are set
@@ -22,4 +22,4 @@ if [ "${BRANCH}" = "$SNAPSHOT_BRANCH" ]; then
 fi
 
 # all the prep is done, lets run the build!
-MVN_CMD="./mvnw -s settings.xml -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -V"
+MVN_CMD="./mvnw -s cicd/ci/settings.xml -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -V"
