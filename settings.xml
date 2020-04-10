@@ -14,7 +14,8 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
+				<sonar.projectKey>${project.groupId}:${project.artifactId}
+				</sonar.projectKey>
 				<sonar.organization>${sonarOrganization}</sonar.organization>
 				<sonar.host.url>${sonarHost}</sonar.host.url>
 				<sonar.login>${sonarLogin}</sonar.login>
