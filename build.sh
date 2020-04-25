@@ -14,7 +14,8 @@ compile() {
 deploy() {
 
   echo "Performing release"
-  ${MVN_CMD} clean deploy -Posshr,releases \
+  ${MVN_CMD} clean deploy -Preleases \
+    -DgpgPassphrase="${GPG_PASSPHRASE}" \
     -DsonatypeUser="${SONATYPE_USER}" \
     -DsonatypePassword="${SONATYPE_PASSWORD}"
 
