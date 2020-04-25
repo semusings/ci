@@ -1,0 +1,3 @@
+# List of assigned trustvalues, created शनिवार 25 अप्रैल 2020 03
+# (Use "gpg --import-ownertrust" to restore them)
+49FFFD6EA62F2E3C1CD9F3E1C0E4DFC99D3B05B8:6:
