@@ -8,12 +8,12 @@ cat >keydetails <<EOF
     Name-Comment: A savvy java developer | cloud native and ddd practitioner | angular developer
     Name-Email: bot.bhuwan@gmail.com
     Expire-Date: 0
-    # Passphrase: $GPG_PASSPHRASE
-    %no-protection
-    %no-ask-passphrase
-    # %pubring .pubring.gpg
-    # %secring .secring.gpg
-    # Do a commit here, so that we can later print "done" :-)
+    Passphrase: $GPG_PASSPHRASE
+#    %no-protection
+#    %no-ask-passphrase
+#    %pubring .pubring.gpg
+#    %secring .secring.gpg
+#    Do a commit here, so that we can later print "done" :-)
     %commit
     %echo done
 EOF
