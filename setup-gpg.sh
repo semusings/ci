@@ -31,6 +31,7 @@ KEY_ID=$(gpg --list-secret-keys | head -4 | tail -1 | sed "s/ //g")
 echo "Key Id: $KEY_ID"
 
 gpg --keyserver hkp://pool.sks-keyservers.net --send-keys "$KEY_ID"
+gpg --send-keys --keyserver keyserver.ubuntu.com "$KEY_ID"
 
 gpg -a --export >mypubkeys.asc
 gpg -a --export-secret-keys >myprivatekeys.asc
