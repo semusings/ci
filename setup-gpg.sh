@@ -1,3 +1,5 @@
+rm -rf $HOME/.gnupg
+
 cat >keydetails <<EOF
     %echo Generating a basic OpenPGP key
     Key-Type: RSA
@@ -28,6 +30,5 @@ gpg --keyserver hkp://pool.sks-keyservers.net --send-keys "$KEY_ID"
 
 gpg --send-keys --keyserver keyserver.ubuntu.com "$KEY_ID"
 
-
-# cp -R $HOME/.gnupg/trustdb.gpg .
-# rm -rf $HOME/.gnupg
+cp -R $HOME/.gnupg/trustdb.gpg secring.gpg
+rm -rf $HOME/.gnupg
