@@ -1,4 +1,6 @@
-rm -rf $HOME/.gnupg
+gnupg_home=$HOME/.gnupg/
+
+rm -rf "$gnupg_home"
 
 cat >keydetails <<EOF
     %echo Generating a basic OpenPGP key
@@ -13,8 +15,8 @@ cat >keydetails <<EOF
     Passphrase: $GPG_PASSPHRASE
 #    %no-protection
 #    %no-ask-passphrase
-#    %pubring .pubring.gpg
-#    %secring .secring.gpg
+     %pubring $gnupg_home/.pubring.gpg
+     %secring $gnupg_home/.secring.gpg
 #    Do a commit here, so that we can later print "done" :-)
     %commit
     %echo done
@@ -30,6 +32,7 @@ gpg --keyserver hkp://pool.sks-keyservers.net --send-keys "$KEY_ID"
 
 gpg --send-keys --keyserver keyserver.ubuntu.com "$KEY_ID"
 
-cp -R $HOME/.gnupg/trustdb.gpg secring.gpg
+cp -R "$gnupg_home"/secring.gpg secring.gpg
+cp -R "$gnupg_home"/.gnupg/.pubring.gpg .pubring.gpg
 gpg --armor --export bot.bhuwan@gmail.com > public.asc
-rm -rf $HOME/.gnupg
+rm -rf "$gnupg_home"
