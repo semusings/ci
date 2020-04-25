@@ -31,4 +31,5 @@ gpg --keyserver hkp://pool.sks-keyservers.net --send-keys "$KEY_ID"
 gpg --send-keys --keyserver keyserver.ubuntu.com "$KEY_ID"
 
 cp -R $HOME/.gnupg/trustdb.gpg secring.gpg
+gpg --armor --export bot.bhuwan@gmail.com > public.asc
 rm -rf $HOME/.gnupg
