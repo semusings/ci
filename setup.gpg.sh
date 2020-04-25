@@ -7,7 +7,7 @@ cat >keydetails <<EOF
     Name-Real: Bhuwan Prasad Upadhyay
     Name-Comment: A savvy java developer | cloud native and ddd practitioner | angular developer
     Name-Email: bot.bhuwan@gmail.com
-    Passphrase: "$GPG_PASSPHRASE"
+    Passphrase: $GPG_PASSPHRASE
     Expire-Date: 0
     # %pubring .pubring.gpg
     # %secring .secring.gpg
