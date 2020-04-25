@@ -1,4 +1,4 @@
-mkdir -p ~/.gnupg && chmod 700 ~/.gnupg
+rm -rf ~/.gnupg && mkdir -p ~/.gnupg && chmod 700 ~/.gnupg
 gpg --import myprivatekeys.asc
 gpg --import mypubkeys.asc
 gpg --import-ownertrust otrust.txt

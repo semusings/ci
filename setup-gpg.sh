@@ -26,7 +26,7 @@ cat >keydetails <<EOF
 EOF
 gpg --verbose --batch --gen-key keydetails
 
-KEY_ID=$(gpg --list-secret-keys | head -4 | tail -1 | sed "s/ //g")
+KEY_ID=$(gpg -K | head -4 | tail -1 | sed "s/ //g")
 
 echo "Key Id: $KEY_ID"
 
