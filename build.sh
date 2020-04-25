@@ -11,6 +11,13 @@ compile() {
 
 }
 
+next_version() {
+
+  echo "Next version release"
+  ${MVN_CMD} clean versions:set \
+    -DnewVersion="${NEW_VERSION}"
+}
+
 deploy() {
 
   echo "Performing release"
@@ -18,9 +25,6 @@ deploy() {
     -DgpgPassphrase="${GPG_PASSPHRASE}" \
     -DsonatypeUser="${SONATYPE_USER}" \
     -DsonatypePassword="${SONATYPE_PASSWORD}"
-
-  # also deploy the documentation and javadocs to the site
-  #  git clone -b gh-pages "https://github.com/${REPO_SLUG}.git" target/gh-pages/
 
 }
 
@@ -63,7 +67,7 @@ no_ci_build() {
   echo "Common Vars: CI_SECURE_ENV_VARS"
   echo "To build: SONAR_ORGANIZATION, SONAR_HOST, SONAR_LOGIN"
   echo "To release: PULL_REQUEST, SONATYPE_USER, SONATYPE_PASSWORD"
-  echo "To rollback release: IS_ROLLBACK"
+  echo "To next_version: HAS_NEW_VERSION"
   echo "To build documentation: IS_DOCS"
   echo ""
 
@@ -73,8 +77,8 @@ no_ci_build() {
 if [ "${DEPLOY}" = true ]; then
   deploy
 else
-  if [ "${IS_ROLLBACK}" = true ]; then
-    rollback
+  if [ "${HAS_NEW_VERSION}" = true ]; then
+    next_version
   else
     if [ "$IS_DOCS" ]; then
       docs
