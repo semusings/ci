@@ -23,5 +23,12 @@
 				<sonar.branch.target>${sonarBranch}</sonar.branch.target>
 			</properties>
 		</profile>
+		<profile>
+			<id>osshr</id>
+			<properties>
+				<gpg.executable>${env.GPG_EXECUTABLE}</gpg.executable>
+				<gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
+			</properties>
+		</profile>
 	</profiles>
 </settings>

@@ -14,7 +14,7 @@ compile() {
 deploy() {
 
   echo "Performing release"
-  ${MVN_CMD} clean release:prepare release:perform \
+  ${MVN_CMD} clean install -Posshr,release \
     -DsonatypeUser="${SONATYPE_USER}" \
     -DsonatypePassword="${SONATYPE_PASSWORD}"
 
