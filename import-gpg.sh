@@ -1,5 +1,4 @@
-rm -rf "$gnupg_home"
-
+mkdir -p ~/.gnupg && chmod 700 ~/.gnupg
 gpg --import myprivatekeys.asc
 gpg --import mypubkeys.asc
 gpg -K
