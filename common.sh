@@ -10,7 +10,7 @@ if [ "${CI_SECURE_ENV_VARS}" = true ]; then
 fi
 RUN_ITS=${RUN_ITS:-false}
 
-if [ "$BRANCH" = "$SNAPSHOT_BRANCH" ] && [ "$PULL_REQUEST" = false ] && [ "${RUN_ITS}" = true ] && [ ! "${IS_RELEASE}" = true ]; then
+if [ "$BRANCH" = "$SNAPSHOT_BRANCH" ] && [ "$PULL_REQUEST" = false ] && [ "${RUN_ITS}" = true ] && [ "${IS_RELEASE}" = true ]; then
   DEPLOY=true
 fi
 DEPLOY=${DEPLOY:-false}
